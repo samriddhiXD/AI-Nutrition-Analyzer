@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2>🥗 AI Nutrition Analyzer</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/tracker">Tracker</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1 style="text-align:center;margin-bottom:30px;">
+            Nutrition Dashboard
+        </h1>
+
+        <div class="summary">
+
+            <div class="summary-card">
+                <h3>🔥 Calories</h3>
+                <p>{{ totals["calories"] }}</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>💪 Protein</h3>
+                <p>{{ totals["protein"] }} g</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>🥑 Fat</h3>
+                <p>{{ totals["fat"] }} g</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>🍚 Carbs</h3>
+                <p>{{ totals["carbs"] }} g</p>
+            </div>
+
+        </div>
+
+        <div class="result-card">
+
+            <h2 style="text-align:center;margin-bottom:20px;">
+                Nutrition Distribution
+            </h2>
+
+            <canvas id="nutritionChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 AI Nutrition Analyzer | Flask + USDA API
+    </footer>
+
+    <script>
+
+        const protein = Number("{{ totals['protein'] }}");
+        const fat = Number("{{ totals['fat'] }}");
+        const carbs = Number("{{ totals['carbs'] }}");
+
+        const ctx = document.getElementById("nutritionChart").getContext("2d");
+
+        new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: ["Protein", "Fat", "Carbohydrates"],
+                datasets: [{
+                    data: [protein, fat, carbs],
+                    backgroundColor: [
+                        "#38bdf8",
+                        "#f59e0b",
+                        "#22c55e"
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

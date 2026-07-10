@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meal Tracker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <h2>🥗 AI Nutrition Analyzer</h2>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/tracker">Tracker</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1 style="text-align:center;margin-bottom:30px;">
+
+        Today's Nutrition Summary
+
+    </h1>
+
+    <div class="summary">
+
+        <div class="summary-card">
+            <h3>🔥 Calories</h3>
+            <p>{{ totals.calories|round(1) }}</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>💪 Protein</h3>
+            <p>{{ totals.protein|round(1) }} g</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>🥑 Fat</h3>
+            <p>{{ totals.fat|round(1) }} g</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>🍚 Carbs</h3>
+            <p>{{ totals.carbs|round(1) }} g</p>
+        </div>
+
+    </div>
+
+    <h2 style="margin-top:40px;">
+
+        Meal History
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Food</th>
+
+            <th>Meal</th>
+
+            <th>Calories</th>
+
+            <th>Protein</th>
+
+            <th>Fat</th>
+
+            <th>Carbs</th>
+
+            <th>Quantity</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for meal in meals %}
+
+        <tr>
+
+            <td>{{ meal.food_name }}</td>
+
+            <td>{{ meal.meal_type }}</td>
+
+            <td>{{ meal.calories }}</td>
+
+            <td>{{ meal.protein }}</td>
+
+            <td>{{ meal.fat }}</td>
+
+            <td>{{ meal.carbs }}</td>
+
+            <td>{{ meal.quantity }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <div class="recommendation">
+
+        <h2>
+
+            🤖 AI Health Recommendations
+
+        </h2>
+
+        <ul>
+
+            {% for tip in recommendations %}
+
+            <li>{{ tip }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>
+
+<footer>
+
+    © 2026 AI Nutrition Analyzer | Flask + USDA API
+
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

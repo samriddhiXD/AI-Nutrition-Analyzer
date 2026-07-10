@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Nutrition Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2>🥗 AI Nutrition Analyzer</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/tracker">Tracker</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <h1>Analyze Your Food Instantly</h1>
+
+        <p>
+            Search any food item and get calories,
+            protein, fat, carbohydrates, fiber and sugar.
+        </p>
+
+    </section>
+
+
+    <div class="container">
+
+        <form action="/search" method="POST">
+
+            <input
+                type="text"
+                name="food_name"
+                placeholder="Search Food..."
+                required>
+
+            <button type="submit">
+                Analyze
+            </button>
+
+        </form>
+
+
+        {% if error %}
+
+        <div class="error">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+        {% if food %}
+
+        <div class="result-card">
+
+            <h2>{{ food.food_name }}</h2>
+
+            <p>
+                <strong>Serving Size:</strong>
+
+                {{ food.serving_size }}
+
+                {{ food.serving_unit }}
+            </p>
+
+            <div class="nutrition-grid">
+
+                <div class="card">
+                    <h3>🔥 Calories</h3>
+                    <span>{{ food.calories }}</span>
+                </div>
+
+                <div class="card">
+                    <h3>💪 Protein</h3>
+                    <span>{{ food.protein }} g</span>
+                </div>
+
+                <div class="card">
+                    <h3>🥑 Fat</h3>
+                    <span>{{ food.fat }} g</span>
+                </div>
+
+                <div class="card">
+                    <h3>🍚 Carbs</h3>
+                    <span>{{ food.carbs }} g</span>
+                </div>
+
+                <div class="card">
+                    <h3>🥦 Fiber</h3>
+                    <span>{{ food.fiber }} g</span>
+                </div>
+
+                <div class="card">
+                    <h3>🍬 Sugar</h3>
+                    <span>{{ food.sugar }} g</span>
+                </div>
+
+            </div>
+
+
+            <form action="/add" method="POST">
+
+                <input
+                    type="hidden"
+                    name="food_name"
+                    value="{{ food.food_name }}">
+
+                <input
+                    type="hidden"
+                    name="calories"
+                    value="{{ food.calories }}">
+
+                <input
+                    type="hidden"
+                    name="protein"
+                    value="{{ food.protein }}">
+
+                <input
+                    type="hidden"
+                    name="fat"
+                    value="{{ food.fat }}">
+
+                <input
+                    type="hidden"
+                    name="carbs"
+                    value="{{ food.carbs }}">
+
+                <input
+                    type="hidden"
+                    name="fiber"
+                    value="{{ food.fiber }}">
+
+                <input
+                    type="hidden"
+                    name="sugar"
+                    value="{{ food.sugar }}">
+
+                <label>
+
+                    Meal Type
+
+                </label>
+
+                <select name="meal_type" required>
+
+                    <option value="Breakfast">Breakfast</option>
+
+                    <option value="Lunch">Lunch</option>
+
+                    <option value="Dinner">Dinner</option>
+
+                    <option value="Snack">Snack</option>
+
+                </select>
+
+                <label>
+
+                    Quantity
+
+                </label>
+
+                <input
+                    type="text"
+                    name="quantity"
+                    placeholder="Example: 100 g"
+                    required>
+
+                <button class="save-btn">
+
+                    Add To Tracker
+
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+
+</html>
