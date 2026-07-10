@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ai-nutrition-analyzer
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "py app.py"
