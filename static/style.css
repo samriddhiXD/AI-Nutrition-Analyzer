@@ -810,6 +810,62 @@ body{
 
 }
 
+.dashboard-subtitle{
+
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-top:-15px;
+    margin-bottom:45px;
+
+}
+
+/* ================= DASHBOARD SUMMARY ================= */
+
+.summary{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-bottom:45px;
+
+}
+
+.summary-card{
+
+    background:white;
+    border-radius:22px;
+    padding:28px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.35s;
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.summary-card h3{
+
+    color:var(--primary);
+    margin-bottom:15px;
+    font-size:22px;
+
+}
+
+.summary-card p{
+
+    font-size:38px;
+    font-weight:700;
+    color:#1C1C1C;
+
+}
+
 .result-card{
 
     background:white;
@@ -1965,4 +2021,66 @@ padding:25px;
 
 animation:fadeInUp .8s ease both;
 
+}
+
+/* Dashboard Chart */
+
+.chart-container{
+    width:380px;
+    height:380px;
+    margin:30px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.chart-container canvas{
+    max-width:380px;
+    max-height:380px;
+}
+
+/* ===== Premium Meal Table ===== */
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.meal-table{
+    width:100%;
+    min-width:900px;
+    border-collapse:separate;
+    border-spacing:0;
+    background:#fff;
+}
+
+.meal-table th{
+    background:#2E7D32;
+    color:#fff;
+    padding:18px 20px;
+    text-align:center;
+    font-size:15px;
+    font-weight:600;
+}
+
+.meal-table td{
+    padding:18px 20px;
+    text-align:center;
+    font-size:15px;
+    color:#444;
+    border-bottom:1px solid #eee;
+}
+
+.meal-table td:first-child{
+    text-align:left;
+    font-weight:600;
+    min-width:220px;
+}
+
+.meal-table tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+.meal-table tbody tr:hover{
+    background:#eef9f1;
+    transition:.3s;
 }
