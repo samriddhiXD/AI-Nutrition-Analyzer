@@ -7,147 +7,679 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meal Tracker</title>
+    <title>AI Nutrition Tracker</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
+<!-- ================= BACKGROUND ================= -->
+
+<div class="blur-circle circle1"></div>
+<div class="blur-circle circle2"></div>
+
+<!-- ================= NAVBAR ================= -->
+
 <nav class="navbar">
 
-    <h2>🥗 AI Nutrition Analyzer</h2>
+    <div class="logo">
+        <h2>🥗 AI Nutrition Analyzer</h2>
+    </div>
 
     <div class="nav-links">
 
         <a href="/">Home</a>
 
-        <a href="/tracker">Tracker</a>
+        <a href="/tracker" class="active">
 
-        <a href="/dashboard">Dashboard</a>
+            Tracker
+
+        </a>
+
+        <a href="/dashboard">
+
+            Dashboard
+
+        </a>
 
     </div>
+
+    <a href="/"
+       class="nav-btn">
+
+        Analyze Food →
+
+    </a>
 
 </nav>
 
-<div class="container">
+<!-- ================= HERO ================= -->
 
-    <h1 style="text-align:center;margin-bottom:30px;">
+<section class="tracker-hero">
 
-        Today's Nutrition Summary
+    <div class="tracker-heading">
 
-    </h1>
+        <span class="hero-badge">
 
-    <div class="summary">
+            📈 Daily Nutrition Tracker
 
-        <div class="summary-card">
-            <h3>🔥 Calories</h3>
-            <p>{{ totals.calories|round(1) }}</p>
-        </div>
+        </span>
 
-        <div class="summary-card">
-            <h3>💪 Protein</h3>
-            <p>{{ totals.protein|round(1) }} g</p>
-        </div>
+        <h1>
 
-        <div class="summary-card">
-            <h3>🥑 Fat</h3>
-            <p>{{ totals.fat|round(1) }} g</p>
-        </div>
+            Today's Nutrition
+            <span>Summary</span>
 
-        <div class="summary-card">
-            <h3>🍚 Carbs</h3>
-            <p>{{ totals.carbs|round(1) }} g</p>
-        </div>
+        </h1>
+
+        <p>
+
+            Monitor calories, protein, carbohydrates,
+            fats and your meal history with intelligent
+            AI powered nutrition tracking.
+
+        </p>
 
     </div>
 
-    <h2 style="margin-top:40px;">
+</section>
 
-        Meal History
+<!-- ================= SUMMARY ================= -->
 
-    </h2>
+<section class="tracker-summary">
 
-    <table>
+<div class="summary-grid">
 
-        <thead>
+<!-- CARD -->
 
-        <tr>
+<div class="tracker-card">
 
-            <th>Food</th>
+<div class="icon-box">
 
-            <th>Meal</th>
-
-            <th>Calories</th>
-
-            <th>Protein</th>
-
-            <th>Fat</th>
-
-            <th>Carbs</th>
-
-            <th>Quantity</th>
-
-        </tr>
-
-        </thead>
-
-        <tbody>
-
-        {% for meal in meals %}
-
-        <tr>
-
-            <td>{{ meal.food_name }}</td>
-
-            <td>{{ meal.meal_type }}</td>
-
-            <td>{{ meal.calories }}</td>
-
-            <td>{{ meal.protein }}</td>
-
-            <td>{{ meal.fat }}</td>
-
-            <td>{{ meal.carbs }}</td>
-
-            <td>{{ meal.quantity }}</td>
-
-        </tr>
-
-        {% endfor %}
-
-        </tbody>
-
-    </table>
-
-    <div class="recommendation">
-
-        <h2>
-
-            🤖 AI Health Recommendations
-
-        </h2>
-
-        <ul>
-
-            {% for tip in recommendations %}
-
-            <li>{{ tip }}</li>
-
-            {% endfor %}
-
-        </ul>
-
-    </div>
+🔥
 
 </div>
 
+<div class="tracker-info">
+
+<h3>
+
+Calories
+
+</h3>
+
+<h2>
+
+{{ totals.calories|round(1) }}
+
+</h2>
+
+<p>
+
+Today's Intake
+
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="tracker-card">
+
+<div class="icon-box">
+
+💪
+
+</div>
+
+<div class="tracker-info">
+
+<h3>
+
+Protein
+
+</h3>
+
+<h2>
+
+{{ totals.protein|round(1) }} g
+
+</h2>
+
+<p>
+
+Body Recovery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="tracker-card">
+
+<div class="icon-box">
+
+🥑
+
+</div>
+
+<div class="tracker-info">
+
+<h3>
+
+Fat
+
+</h3>
+
+<h2>
+
+{{ totals.fat|round(1) }} g
+
+</h2>
+
+<p>
+
+Healthy Energy
+
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="tracker-card">
+
+<div class="icon-box">
+
+🍚
+
+</div>
+
+<div class="tracker-info">
+
+<h3>
+
+Carbohydrates
+
+</h3>
+
+<h2>
+
+{{ totals.carbs|round(1) }} g
+
+</h2>
+
+<p>
+
+Daily Fuel
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= MEAL HISTORY ================= -->
+
+<section class="meal-section">
+
+<div class="meal-card">
+
+<div class="section-title">
+
+<h2>
+
+🍽 Meal History
+
+</h2>
+
+<p>
+
+Track every meal you've added today.
+
+</p>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="meal-table">
+
+<thead>
+
+<tr>
+
+<th>Food</th>
+
+<th>Meal</th>
+
+<th>Calories</th>
+
+<th>Protein</th>
+
+<th>Fat</th>
+
+<th>Carbs</th>
+
+<th>Quantity</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for meal in meals %}
+
+<tr>
+
+<td>
+
+{{ meal.food_name }}
+
+</td>
+
+<td>
+
+{{ meal.meal_type }}
+
+</td>
+
+<td>
+
+{{ meal.calories }}
+
+</td>
+
+<td>
+
+{{ meal.protein }}
+
+</td>
+
+<td>
+
+{{ meal.fat }}
+
+</td>
+
+<td>
+
+{{ meal.carbs }}
+
+</td>
+
+<td>
+
+{{ meal.quantity }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= AI RECOMMENDATIONS ================= -->
+
+<section class="recommendation-section">
+
+    <div class="recommendation-card">
+
+        <div class="section-title">
+
+            <h2>
+                🤖 AI Health Recommendations
+            </h2>
+
+            <p>
+                Personalized suggestions based on today's nutrition.
+            </p>
+
+        </div>
+
+        <div class="tips-grid">
+
+            {% for tip in recommendations %}
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    ✅
+                </div>
+
+                <div class="tip-content">
+
+                    <h3>
+
+                        Healthy Suggestion
+
+                    </h3>
+
+                    <p>
+
+                        {{ tip }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DAILY GOALS ================= -->
+
+<section class="goal-section">
+
+<div class="goal-card">
+
+<div class="section-title">
+
+<h2>
+
+🎯 Daily Nutrition Goals
+
+</h2>
+
+<p>
+
+Recommended daily targets for a balanced diet.
+
+</p>
+
+</div>
+
+<div class="goal-grid">
+
+<div class="goal-item">
+
+<div class="goal-header">
+
+<span>🔥 Calories</span>
+
+<span>2000 kcal</span>
+
+</div>
+
+<div class="goal-progress">
+
+<div class="goal-fill calories-fill"></div>
+
+</div>
+
+</div>
+
+<div class="goal-item">
+
+<div class="goal-header">
+
+<span>💪 Protein</span>
+
+<span>100 g</span>
+
+</div>
+
+<div class="goal-progress">
+
+<div class="goal-fill protein-fill"></div>
+
+</div>
+
+</div>
+
+<div class="goal-item">
+
+<div class="goal-header">
+
+<span>🥑 Fat</span>
+
+<span>70 g</span>
+
+</div>
+
+<div class="goal-progress">
+
+<div class="goal-fill fat-fill"></div>
+
+</div>
+
+</div>
+
+<div class="goal-item">
+
+<div class="goal-header">
+
+<span>🍚 Carbs</span>
+
+<span>250 g</span>
+
+</div>
+
+<div class="goal-progress">
+
+<div class="goal-fill carbs-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= QUICK STATS ================= -->
+
+<section class="quick-stats">
+
+<div class="quick-card">
+
+<div class="quick-icon">
+
+🥗
+
+</div>
+
+<h3>
+
+Healthy Meals
+
+</h3>
+
+<h2>
+
+{{ meals|length }}
+
+</h2>
+
+<p>
+
+Meals Logged Today
+
+</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="quick-icon">
+
+⚡
+
+</div>
+
+<h3>
+
+AI Tracking
+
+</h3>
+
+<h2>
+
+100%
+
+</h2>
+
+<p>
+
+Real-Time Analysis
+
+</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="quick-icon">
+
+❤️
+
+</div>
+
+<h3>
+
+Health Score
+
+</h3>
+
+<h2>
+
+Excellent
+
+</h2>
+
+<p>
+
+Keep Eating Healthy
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    © 2026 AI Nutrition Analyzer | Flask + USDA API
+    <div class="footer-content">
+
+        <h2>
+
+            🥗 AI Nutrition Analyzer
+
+        </h2>
+
+        <p>
+
+            Track your meals, understand your nutrition,
+            and build healthier habits with AI-powered
+            insights.
+
+        </p>
+
+        <div class="footer-links">
+
+            <a href="/">Home</a>
+
+            <a href="/tracker">Tracker</a>
+
+            <a href="/dashboard">Dashboard</a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Samriddhi Gupta
+
+            All Rights Reserved.
+
+        </p>
+
+    </div>
 
 </footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const calories =
+parseFloat("{{ totals.calories|default(0) }}");
+
+const protein =
+parseFloat("{{ totals.protein|default(0) }}");
+
+const fat =
+parseFloat("{{ totals.fat|default(0) }}");
+
+const carbs =
+parseFloat("{{ totals.carbs|default(0) }}");
+
+function fillBar(selector,value,max){
+
+    const el=document.querySelector(selector);
+
+    if(!el) return;
+
+    let percent=(value/max)*100;
+
+    if(percent>100) percent=100;
+
+    el.style.width=percent+"%";
+
+}
+
+fillBar(".calories-fill",calories,2000);
+
+fillBar(".protein-fill",protein,100);
+
+fillBar(".fat-fill",fat,70);
+
+fillBar(".carbs-fill",carbs,250);
+
+</script>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 

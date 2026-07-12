@@ -1423,3 +1423,546 @@ html{
 /* ==========================================================
                         END
 ========================================================== */
+
+/* ==========================================================
+                    TRACKER PAGE
+========================================================== */
+
+.tracker-hero{
+
+    width:90%;
+    max-width:1200px;
+    margin:60px auto 20px;
+    text-align:center;
+
+}
+
+.tracker-heading h1{
+
+    font-size:52px;
+    color:#1C1C1C;
+    margin:20px 0;
+
+}
+
+.tracker-heading h1 span{
+
+    color:var(--primary);
+
+}
+
+.tracker-heading p{
+
+    max-width:700px;
+    margin:auto;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+
+}
+
+/* ================= SUMMARY ================= */
+
+.tracker-summary{
+
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+
+}
+
+.summary-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+
+}
+
+.tracker-card{
+
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    box-shadow:var(--shadow);
+    transition:.35s;
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+.tracker-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.icon-box{
+
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    background:#E8F5E9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+
+}
+
+.tracker-info h3{
+
+    color:#777;
+    margin-bottom:6px;
+    font-size:18px;
+
+}
+
+.tracker-info h2{
+
+    color:var(--primary);
+    font-size:34px;
+
+}
+
+.tracker-info p{
+
+    color:#999;
+    margin-top:5px;
+
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+
+    margin-bottom:30px;
+
+}
+
+.section-title h2{
+
+    font-size:34px;
+    color:var(--primary);
+    margin-bottom:10px;
+
+}
+
+.section-title p{
+
+    color:#666;
+
+}
+
+/* ================= MEAL CARD ================= */
+
+.meal-section{
+
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+
+}
+
+.meal-card{
+
+    background:white;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:var(--shadow);
+
+}
+
+.table-responsive{
+
+    overflow-x:auto;
+
+}
+
+.meal-table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.meal-table thead{
+
+    background:#2E7D32;
+    color:white;
+
+}
+
+.meal-table th{
+
+    padding:18px;
+    font-size:16px;
+    text-align:left;
+
+}
+
+.meal-table td{
+
+    padding:18px;
+    border-bottom:1px solid #ECECEC;
+    color:#555;
+
+}
+
+.meal-table tbody tr{
+
+    transition:.3s;
+
+}
+
+.meal-table tbody tr:hover{
+
+    background:#F8FFF7;
+
+}
+
+/* ==========================================================
+            TRACKER PAGE - PART 2
+========================================================== */
+
+/* ================= RECOMMENDATION ================= */
+
+.recommendation-section{
+
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+
+}
+
+.recommendation-card{
+
+    background:#fff;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:var(--shadow);
+
+}
+
+.tips-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+
+}
+
+.tip-card{
+
+    display:flex;
+    gap:18px;
+    padding:25px;
+    border-radius:20px;
+    background:#F8FFF7;
+    border:1px solid #E6F4E8;
+    transition:.35s;
+
+}
+
+.tip-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+
+}
+
+.tip-icon{
+
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    flex-shrink:0;
+
+}
+
+.tip-content h3{
+
+    color:var(--primary);
+    margin-bottom:8px;
+
+}
+
+.tip-content p{
+
+    color:#666;
+    line-height:1.7;
+
+}
+
+/* ================= GOALS ================= */
+
+.goal-section{
+
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+
+}
+
+.goal-card{
+
+    background:white;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:var(--shadow);
+
+}
+
+.goal-grid{
+
+    display:grid;
+    gap:25px;
+
+}
+
+.goal-item{
+
+    margin-bottom:15px;
+
+}
+
+.goal-header{
+
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#444;
+
+}
+
+.goal-progress{
+
+    height:12px;
+    background:#EAEAEA;
+    border-radius:50px;
+    overflow:hidden;
+
+}
+
+.goal-fill{
+
+    height:100%;
+    width:0;
+    border-radius:50px;
+    transition:width 1s ease;
+
+}
+
+.calories-fill{
+
+    background:#FF7043;
+
+}
+
+.protein-fill{
+
+    background:#42A5F5;
+
+}
+
+.fat-fill{
+
+    background:#FBC02D;
+
+}
+
+.carbs-fill{
+
+    background:#66BB6A;
+
+}
+
+/* ================= QUICK STATS ================= */
+
+.quick-stats{
+
+    width:90%;
+    max-width:1200px;
+    margin:70px auto 100px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+
+}
+
+.quick-card{
+
+    background:white;
+    border-radius:28px;
+    padding:35px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.35s;
+
+}
+
+.quick-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 45px rgba(0,0,0,.12);
+
+}
+
+.quick-icon{
+
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:50%;
+    background:#E8F5E9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:36px;
+    margin-bottom:20px;
+
+}
+
+.quick-card h3{
+
+    color:#555;
+    margin-bottom:10px;
+
+}
+
+.quick-card h2{
+
+    color:var(--primary);
+    font-size:40px;
+    margin-bottom:10px;
+
+}
+
+.quick-card p{
+
+    color:#777;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+.summary-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.quick-stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.tracker-heading h1{
+
+font-size:38px;
+
+}
+
+.meal-card,
+.recommendation-card,
+.goal-card{
+
+padding:25px;
+
+}
+
+.summary-grid,
+.quick-stats,
+.tips-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.icon-box{
+
+width:60px;
+height:60px;
+font-size:24px;
+
+}
+
+.tracker-info h2{
+
+font-size:28px;
+
+}
+
+.meal-table{
+
+min-width:700px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.section-title h2{
+
+font-size:28px;
+
+}
+
+.tracker-heading h1{
+
+font-size:30px;
+
+}
+
+.hero-badge{
+
+font-size:14px;
+
+}
+
+.tracker-card{
+
+padding:22px;
+
+}
+
+.quick-card{
+
+padding:25px;
+
+}
+
+}
+
+/* ================= ANIMATIONS ================= */
+
+.tracker-card,
+.tip-card,
+.quick-card,
+.goal-card,
+.meal-card{
+
+animation:fadeInUp .8s ease both;
+
+}
